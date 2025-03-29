@@ -37,17 +37,17 @@ Anschließend verpackt man das ganze wieder in die ZIP Datei.
 Die CFDs können ohne weitere Interaktion auf BLFs von Tischtelefonen provisioniert werden. Der Syntax ist vom Hersteller abhängig.
 
 - Yealink BLF Tasten als indiv. Kurzwahl definieren :
-	z.B. Wtlg Handy: *72,0172123456#
-	z.B. Wtlg Nst10: *72,10#
-	z.B. Wtlg aus: *73
-- Fanvil BLF Tasten als indiv. Kurzwahl definieren :
-	z.B. Wtlg Handy: *72,0172123456#
-	z.B. Wtlg Nst10: *72,10#
-	z.B. Wtlg aus: *73
-- Snom (ungetestet) BLF Tasten als indiv. Kurzwahl definieren:
-	z.B. Wtlg Handy: *72;dtmf=0172123456#
-	z.B. Wtlg Nst10: *72;dtmf=10#
-	z.B. Wtlg aus: *73
+	z.B. Wtlg Handy: *72,0172123456#<br>
+	z.B. Wtlg Nst10: *72,10#<br>
+	z.B. Wtlg aus: *73<br>
+- Fanvil BLF Tasten als indiv. Kurzwahl definieren :<br>
+	z.B. Wtlg Handy: *72,0172123456#<br>
+	z.B. Wtlg Nst10: *72,10#<br>
+	z.B. Wtlg aus: *73<br>
+- Snom (ungetestet) BLF Tasten als indiv. Kurzwahl definieren:<br>
+	z.B. Wtlg Handy: *72;dtmf=0172123456#<br>
+	z.B. Wtlg Nst10: *72;dtmf=10#<br>
+	z.B. Wtlg aus: *73<br>
 
 
 *Quellen / Nützliche Tools*
