@@ -1,1 +1,3 @@
 # 3CX
+
+/CFD  diverse Call Flow Schnippsel f. dynamische Weiterleitungen, Änderungen von Bürozeiten...
