@@ -3,7 +3,8 @@
 
 ### 721_dynWeiterleitung_mitExtension_an ###
 Das Skript *721 arbeitet wie 72_dynWeiterleitung_an, allerdings wird zuerst die zu ändernde Nebenstelle mittels DTMF abgefragt.
-Anschließend wird mittels DTFM die Zielrufnummer der Weiterleitung abgefragt, diese in das Weiterleitungsziel des "Benutzerdefinierter Status 2" eingetragen und schaltet den Status der angegebenen Nebenstelle auf diesen umgeschaltet.
+Anschließend wird mittels DTFM die Zielrufnummer der Weiterleitung abgefragt, diese in das Weiterleitungsziel des "Benutzerdefinierter Status 2" eingetragen 
+und der Status der angegebenen Nebenstelle auf diesen umgeschaltet.
 Die Nebenstelle und das Ziel wird mittels DTMF übergeben. Bei Tischtelefonen kann dies wie unten beschrieben auf BLF Tasten gelegt werden. 
 Bei Apps und DECT Telefonen kann die Zielrufnummer nur über die Telefontastatur eingegeben werden.
 
