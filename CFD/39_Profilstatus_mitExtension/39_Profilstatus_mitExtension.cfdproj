@@ -2,7 +2,6 @@
 <Graphical_Application_Designer_Project>
   <Version>2.1</Version>
   <Files>
-    <File path="Component1.comp" type="component" />
     <File path="Main.flow" type="callflow" />
   </Files>
   <Variables>
@@ -30,10 +29,10 @@
   <DebugBuildSuccessful>False</DebugBuildSuccessful>
   <ReleaseBuildSuccessful>True</ReleaseBuildSuccessful>
   <DebugBuildNumber>0</DebugBuildNumber>
-  <ReleaseBuildNumber>50</ReleaseBuildNumber>
+  <ReleaseBuildNumber>51</ReleaseBuildNumber>
   <ChangedSinceLastDebugBuild>True</ChangedSinceLastDebugBuild>
   <DoNotAskForExtension>False</DoNotAskForExtension>
-  <Extension>39</Extension>
+  <Extension>*39</Extension>
   <OnlineServicesTextToSpeechEngine>None</OnlineServicesTextToSpeechEngine>
   <OnlineServicesSpeechToTextEngine>None</OnlineServicesSpeechToTextEngine>
   <AmazonClientID>
