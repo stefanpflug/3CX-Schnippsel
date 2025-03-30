@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<File>
+  <Version>2.1</Version>
+  <Variables>
+    <ArrayOfVariable xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <Variable>
+        <Name>DialedExtensionNo</Name>
+        <ShowScopeProperty>true</ShowScopeProperty>
+        <DebuggerVisible>true</DebuggerVisible>
+        <HelpText />
+      </Variable>
+    </ArrayOfVariable>
+  </Variables>
+  <Flows>
+    <MainFlow>
+      <ns0:MainFlow Description="Callflow execution path." DebugModeActive="False" x:Name="cGetDialedExtension" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ns0="clr-namespace:TCX.CFD.Classes.Components;Assembly=3CX Call Flow Designer, Version=20.2.84.0, Culture=neutral, PublicKeyToken=7cb95a1a133e706e">
+        <ns0:ExecuteCSharpCodeComponent ReturnsValue="True" Code="// https://www.3cx.com/community/threads/get-extension-by-called-number.132441/post-630907&#xD;&#xA;string retval=&quot;0&quot;;&#xD;&#xA;if(myCall.Caller.DN is ExternalLine externalLine &amp;&amp; myCall.IsInbound)&#xD;&#xA;{&#xD;&#xA;    string[] range;&#xD;&#xA;    foreach (var a in externalLine.RoutingRules)&#xD;&#xA;    {&#xD;&#xA;        bool match = (a.Conditions.Condition.Type == RuleConditionType.BasedOnDID &amp;&amp;&#xD;&#xA;        (&#xD;&#xA;            a.Data == myCall.Caller.CalledNumber&#xD;&#xA;            || (a.Data.StartsWith('*') &amp;&amp; myCall.Caller.CalledNumber.EndsWith(a.Data[1..]))&#xD;&#xA;        ))&#xD;&#xA;        ||&#xD;&#xA;        (&#xD;&#xA;            a.Conditions.Condition.Type == RuleConditionType.BasedOnCallerID &amp;&amp;&#xD;&#xA;            a.Data.Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)&#xD;&#xA;            .Any&#xD;&#xA;            (x =&gt;&#xD;&#xA;                x == &quot;*&quot;&#xD;&#xA;                || x == myCall.Caller.CallerID&#xD;&#xA;                || x.StartsWith('*') &amp;&amp; myCall.Caller.CallerID.EndsWith(x[1..])&#xD;&#xA;                || x.EndsWith('*') &amp;&amp; myCall.Caller.CallerID.StartsWith(x[..^1])&#xD;&#xA;                || x.StartsWith('*') &amp;&amp; x.EndsWith('*') &amp;&amp; myCall.Caller.CallerID.Contains(x[1..^1])&#xD;&#xA;                || ((range = x.Split(&quot;-&quot;, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries)).Length == 2 ?&#xD;&#xA;                (range[0].Length == myCall.Caller.CallerID.Length &amp;&amp; range[1].Length == myCall.Caller.CallerID.Length) &amp;&amp; (range[0].CompareTo(myCall.Caller.CallerID) &lt;= 0 &amp;&amp; range[1].CompareTo(myCall.Caller.CallerID) &gt;= 0) : false)&#xD;&#xA;            )&#xD;&#xA;        )&#xD;&#xA;        ||&#xD;&#xA;        (a.Conditions.Condition.Type == RuleConditionType.ForwardAll);&#xD;&#xA;   &#xD;&#xA;        if (match)&#xD;&#xA;        {&#xD;&#xA;            retval=(a.ForwardDestinations.OfficeHoursDestination).Internal?.Number?? &quot;0&quot;;&#xD;&#xA;            break;&#xD;&#xA;        }&#xD;&#xA;    }&#xD;&#xA;}&#xD;&#xA;else&#xD;&#xA;{&#xD;&#xA;    retval=myCall.Caller.AttachedData[&quot;extnumber&quot;]?? &quot;0&quot;;&#xD;&#xA;}&#xD;&#xA;return retval;" ParameterList="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&lt;ArrayOfScriptParameter xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; /&gt;" MethodName="test" Tag="" DebugModeActive="False" x:Name="ExecuteCSharpCode1" />
+        <ns0:VariableAssignmentComponent VariableName="callflow$.DialedExtensionNo" Tag="" DebugModeActive="False" Expression="ExecuteCSharpCode1.ReturnValue" x:Name="AssignVariable1" />
+      </ns0:MainFlow>
+    </MainFlow>
+    <ErrorHandlerFlow>
+      <ns0:ErrorHandlerFlow Description="Execution path when an error ocurrs." DebugModeActive="False" x:Name="cGetDialedExtension" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ns0="clr-namespace:TCX.CFD.Classes.Components;Assembly=3CX Call Flow Designer, Version=20.2.84.0, Culture=neutral, PublicKeyToken=7cb95a1a133e706e" />
+    </ErrorHandlerFlow>
+    <DisconnectHandlerFlow>
+      <ns0:DisconnectHandlerFlow Description="Execution path since the call gets disconnected." DebugModeActive="False" x:Name="cGetDialedExtension" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ns0="clr-namespace:TCX.CFD.Classes.Components;Assembly=3CX Call Flow Designer, Version=20.2.84.0, Culture=neutral, PublicKeyToken=7cb95a1a133e706e" />
+    </DisconnectHandlerFlow>
+  </Flows>
+</File>

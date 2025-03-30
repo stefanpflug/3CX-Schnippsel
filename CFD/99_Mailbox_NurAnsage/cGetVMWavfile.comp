@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<File>
+  <Version>2.1</Version>
+  <Variables>
+    <ArrayOfVariable xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+      <Variable>
+        <Name>IVRPath</Name>
+        <ShowScopeProperty>true</ShowScopeProperty>
+        <DebuggerVisible>true</DebuggerVisible>
+        <HelpText />
+      </Variable>
+      <Variable>
+        <Name>Profilename</Name>
+        <ShowScopeProperty>true</ShowScopeProperty>
+        <DebuggerVisible>true</DebuggerVisible>
+        <HelpText />
+      </Variable>
+      <Variable>
+        <Name>result_Fullfilename</Name>
+        <ShowScopeProperty>true</ShowScopeProperty>
+        <DebuggerVisible>true</DebuggerVisible>
+        <HelpText />
+      </Variable>
+      <Variable>
+        <Name>wavDefault</Name>
+        <Scope>Private</Scope>
+        <ShowScopeProperty>true</ShowScopeProperty>
+        <DebuggerVisible>true</DebuggerVisible>
+        <HelpText />
+      </Variable>
+      <Variable>
+        <Name>wavAvailable</Name>
+        <Scope>Private</Scope>
+        <ShowScopeProperty>true</ShowScopeProperty>
+        <DebuggerVisible>true</DebuggerVisible>
+        <HelpText />
+      </Variable>
+      <Variable>
+        <Name>wavAway</Name>
+        <Scope>Private</Scope>
+        <ShowScopeProperty>true</ShowScopeProperty>
+        <DebuggerVisible>true</DebuggerVisible>
+        <HelpText />
+      </Variable>
+      <Variable>
+        <Name>wavOoO</Name>
+        <Scope>Private</Scope>
+        <ShowScopeProperty>true</ShowScopeProperty>
+        <DebuggerVisible>true</DebuggerVisible>
+        <HelpText />
+      </Variable>
+      <Variable>
+        <Name>wavCustom1</Name>
+        <Scope>Private</Scope>
+        <ShowScopeProperty>true</ShowScopeProperty>
+        <DebuggerVisible>true</DebuggerVisible>
+        <HelpText />
+      </Variable>
+      <Variable>
+        <Name>wavCustom2</Name>
+        <Scope>Private</Scope>
+        <ShowScopeProperty>true</ShowScopeProperty>
+        <DebuggerVisible>true</DebuggerVisible>
+        <HelpText />
+      </Variable>
+      <Variable>
+        <Name>Filename</Name>
+        <Scope>Private</Scope>
+        <ShowScopeProperty>true</ShowScopeProperty>
+        <DebuggerVisible>true</DebuggerVisible>
+        <HelpText />
+      </Variable>
+    </ArrayOfVariable>
+  </Variables>
+  <Flows>
+    <MainFlow>
+      <ns0:MainFlow Description="Callflow execution path." DebugModeActive="False" x:Name="cGetVMWavfile" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ns0="clr-namespace:TCX.CFD.Classes.Components;Assembly=3CX Call Flow Designer, Version=20.2.84.0, Culture=neutral, PublicKeyToken=7cb95a1a133e706e">
+        <ns0:FileManagementComponent AppendFinalCrLf="True" Action="Read" x:Name="ReadWriteFile1" FileName="CONCATENATE(callflow$.IVRPath,&quot;/greetings.xml&quot;)" ReadToEnd="true" Content="" Tag="Greetings.xml" FirstLineToRead="0" OpenMode="Open" DebugModeActive="False" LinesToRead="" />
+        <ns0:JsonXmlParserComponent ResponseMappingsList="&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-16&quot;?&gt;&lt;ArrayOfResponseMapping xmlns:xsd=&quot;http://www.w3.org/2001/XMLSchema&quot; xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;&gt;&lt;ResponseMapping&gt;&lt;Path&gt;string(/overrides/greeting[@profile='default']/@file)&lt;/Path&gt;&lt;Variable&gt;callflow$.wavDefault&lt;/Variable&gt;&lt;/ResponseMapping&gt;&lt;ResponseMapping&gt;&lt;Path&gt;string(/overrides/greeting[@profile='Available']/@file)&lt;/Path&gt;&lt;Variable&gt;callflow$.wavAvailable&lt;/Variable&gt;&lt;/ResponseMapping&gt;&lt;ResponseMapping&gt;&lt;Path&gt;string(/overrides/greeting[@profile='Away']/@file)&lt;/Path&gt;&lt;Variable&gt;callflow$.wavAway&lt;/Variable&gt;&lt;/ResponseMapping&gt;&lt;ResponseMapping&gt;&lt;Path&gt;string(/overrides/greeting[@profile='Out of office']/@file)&lt;/Path&gt;&lt;Variable&gt;callflow$.wavOoO&lt;/Variable&gt;&lt;/ResponseMapping&gt;&lt;ResponseMapping&gt;&lt;Path&gt;string(/overrides/greeting[@profile='Custom 1']/@file)&lt;/Path&gt;&lt;Variable&gt;callflow$.wavCustom1&lt;/Variable&gt;&lt;/ResponseMapping&gt;&lt;ResponseMapping&gt;&lt;Path&gt;string(/overrides/greeting[@profile='Custom 2']/@file)&lt;/Path&gt;&lt;Variable&gt;callflow$.wavCustom2&lt;/Variable&gt;&lt;/ResponseMapping&gt;&lt;/ArrayOfResponseMapping&gt;" Input="ReadWriteFile1.Result" Tag="VMdefaultWav" DebugModeActive="False" TextType="XML" x:Name="JsonXmlParser1" />
+        <ns0:ConditionalComponent Tag="" DebugModeActive="False" x:Name="CreateCondition1">
+          <ns0:ConditionalComponentBranch Condition="EQUAL(callflow$.Profilename,&quot;Available&quot;)" Description="Execution path when the specified condition is met." Tag="Available" DebugModeActive="False" x:Name="cond1">
+            <ns0:VariableAssignmentComponent VariableName="callflow$.Filename" Tag="filename" DebugModeActive="False" Expression="callflow$.wavAvailable" x:Name="AssignVariable1" />
+          </ns0:ConditionalComponentBranch>
+          <ns0:ConditionalComponentBranch Condition="EQUAL(callflow$.Profilename,&quot;Away&quot;)" Description="Execution path when the specified condition is met." Tag="Away" DebugModeActive="False" x:Name="conditionalComponentBranch1">
+            <ns0:VariableAssignmentComponent VariableName="callflow$.Filename" Tag="filename" DebugModeActive="False" Expression="callflow$.wavAway" x:Name="AssignVariable2" />
+          </ns0:ConditionalComponentBranch>
+          <ns0:ConditionalComponentBranch Condition="EQUAL(callflow$.Profilename,&quot;Out of office&quot;)" Description="Execution path when the specified condition is met." Tag="Available" DebugModeActive="False" x:Name="conditionalComponentBranch2">
+            <ns0:VariableAssignmentComponent VariableName="callflow$.Filename" Tag="filename" DebugModeActive="False" Expression="callflow$.wavOoO" x:Name="AssignVariable3" />
+          </ns0:ConditionalComponentBranch>
+          <ns0:ConditionalComponentBranch Condition="EQUAL(callflow$.Profilename,&quot;Custom 1&quot;)" Description="Execution path when the specified condition is met." Tag="Available" DebugModeActive="False" x:Name="conditionalComponentBranch3">
+            <ns0:VariableAssignmentComponent VariableName="callflow$.Filename" Tag="filename" DebugModeActive="False" Expression="callflow$.wavCustom1" x:Name="AssignVariable4" />
+          </ns0:ConditionalComponentBranch>
+          <ns0:ConditionalComponentBranch Condition="EQUAL(callflow$.Profilename,&quot;Custom 2&quot;)" Description="Execution path when the specified condition is met." Tag="Available" DebugModeActive="False" x:Name="conditionalComponentBranch4">
+            <ns0:VariableAssignmentComponent VariableName="callflow$.Filename" Tag="filename" DebugModeActive="False" Expression="callflow$.wavCustom2" x:Name="AssignVariable5" />
+          </ns0:ConditionalComponentBranch>
+        </ns0:ConditionalComponent>
+        <ns0:ConditionalComponent Tag="" DebugModeActive="False" x:Name="CreateCondition2">
+          <ns0:ConditionalComponentBranch Condition="EQUAL(callflow$.Filename,&quot;&quot;)" Description="Execution path when the specified condition is met." Tag="" DebugModeActive="False" x:Name="conditionalComponentBranch5">
+            <ns0:VariableAssignmentComponent VariableName="callflow$.Filename" Tag="filename" DebugModeActive="False" Expression="callflow$.wavDefault" x:Name="variableAssignmentComponent1" />
+          </ns0:ConditionalComponentBranch>
+        </ns0:ConditionalComponent>
+        <ns0:VariableAssignmentComponent VariableName="callflow$.result_Fullfilename" Tag="result_FullFilename" DebugModeActive="False" Expression="CONCATENATE(callflow$.IVRPath,&quot;/&quot;,callflow$.Filename)" x:Name="AssignVariable6" />
+      </ns0:MainFlow>
+    </MainFlow>
+    <ErrorHandlerFlow>
+      <ns0:ErrorHandlerFlow Description="Execution path when an error ocurrs." DebugModeActive="False" x:Name="cGetVMWavfile" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ns0="clr-namespace:TCX.CFD.Classes.Components;Assembly=3CX Call Flow Designer, Version=20.2.84.0, Culture=neutral, PublicKeyToken=7cb95a1a133e706e" />
+    </ErrorHandlerFlow>
+    <DisconnectHandlerFlow>
+      <ns0:DisconnectHandlerFlow Description="Execution path since the call gets disconnected." DebugModeActive="False" x:Name="cGetVMWavfile" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:ns0="clr-namespace:TCX.CFD.Classes.Components;Assembly=3CX Call Flow Designer, Version=20.2.84.0, Culture=neutral, PublicKeyToken=7cb95a1a133e706e" />
+    </DisconnectHandlerFlow>
+  </Flows>
+</File>
