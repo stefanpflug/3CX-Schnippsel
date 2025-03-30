@@ -1,8 +1,7 @@
-# 3CX
 
 Die importierebaren ZIP Dateien liegen im Ordner /RELEASE
 
-# Profilstatus wechseln
+## Profilstatus wechseln ##
 ### 39_Profilstatus_mitExtension ###
 Das Skript *39 ermöglicht das wechseln des Profilstatus einer beliebigen Nebenstelle
 Mittels DTMF wird zuerst die Nebenstelle abgefragt und dann die ID des Status (0-4, wobei 0 = Verfügbar).
@@ -12,7 +11,7 @@ Bei Apps und DECT Telefonen kann die Zielrufnummer nur über die Telefontastatur
 Nutzungsbeispiel: *39 anrufen, "40#2#" eingeben um für die Nebenstelle 40 auf "Bitte nicht stören umzuschalten.
 
 
-# 99_Mailbox_NurAnsage #
+## 99_Mailbox_NurAnsage ##
 Das Skript *99 stellt eine Ansage ohne Aufnahmemöglichkeit zur Verfügung, die der Nutzer (im Gegensatz zur IVR Lösung) selbst besprechen/verändern kann.
 Der Aufruf erfolgt als Ziel über die Anrufweiterleitung in der Nebenstelle. Die Ansagen werden aus den im Status des Benutzers hinterlegten Ansagen bezogen.
 Ist dort keine gefüllt, so erfolgt ein Fallback auf die Standardansage (Register Mailbox).
