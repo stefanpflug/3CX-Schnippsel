@@ -3,6 +3,7 @@
   <Version>2.1</Version>
   <Files>
     <File path="Main.flow" type="callflow" />
+    <File path="setStateAndFWDestination.comp" type="component" />
   </Files>
   <Variables>
     <ArrayOfVariable xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -27,12 +28,12 @@
     </ArrayOfVariable>
   </Variables>
   <DebugBuildSuccessful>False</DebugBuildSuccessful>
-  <ReleaseBuildSuccessful>False</ReleaseBuildSuccessful>
+  <ReleaseBuildSuccessful>True</ReleaseBuildSuccessful>
   <DebugBuildNumber>0</DebugBuildNumber>
-  <ReleaseBuildNumber>52</ReleaseBuildNumber>
+  <ReleaseBuildNumber>56</ReleaseBuildNumber>
   <ChangedSinceLastDebugBuild>True</ChangedSinceLastDebugBuild>
   <DoNotAskForExtension>False</DoNotAskForExtension>
-  <Extension>721</Extension>
+  <Extension>*721</Extension>
   <OnlineServicesTextToSpeechEngine>None</OnlineServicesTextToSpeechEngine>
   <OnlineServicesSpeechToTextEngine>None</OnlineServicesSpeechToTextEngine>
   <AmazonClientID>

@@ -2,8 +2,8 @@
 <Graphical_Application_Designer_Project>
   <Version>2.1</Version>
   <Files>
+    <File path="Component1.comp" type="component" />
     <File path="Main.flow" type="callflow" />
-    <File path="setStateAndFWDestination.comp" type="component" />
   </Files>
   <Variables>
     <ArrayOfVariable xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
@@ -20,7 +20,7 @@
         <HelpText />
       </Variable>
       <Variable>
-        <Name>ZielNr</Name>
+        <Name>Zielstatus</Name>
         <ShowScopeProperty>false</ShowScopeProperty>
         <DebuggerVisible>true</DebuggerVisible>
         <HelpText />
@@ -30,10 +30,10 @@
   <DebugBuildSuccessful>False</DebugBuildSuccessful>
   <ReleaseBuildSuccessful>True</ReleaseBuildSuccessful>
   <DebugBuildNumber>0</DebugBuildNumber>
-  <ReleaseBuildNumber>48</ReleaseBuildNumber>
+  <ReleaseBuildNumber>50</ReleaseBuildNumber>
   <ChangedSinceLastDebugBuild>True</ChangedSinceLastDebugBuild>
   <DoNotAskForExtension>False</DoNotAskForExtension>
-  <Extension>*73</Extension>
+  <Extension>39</Extension>
   <OnlineServicesTextToSpeechEngine>None</OnlineServicesTextToSpeechEngine>
   <OnlineServicesSpeechToTextEngine>None</OnlineServicesSpeechToTextEngine>
   <AmazonClientID>

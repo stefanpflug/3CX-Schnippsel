@@ -2,6 +2,17 @@
 
 Die importierebaren ZIP Dateien liegen im Ordner /RELEASE
 
+# Profilstatus wechseln
+### 39_Profilstatus_mitExtension ###
+Das Skript *39 ermöglicht das wechseln des Profilstatus einer beliebigen Nebenstelle
+Mittels DTMF wird zuerst die Nebenstelle abgefragt und dann die ID des Status (0-4, wobei 0 = Verfügbar).
+Bei Tischtelefonen kann dies wie unten beschrieben auf BLF Tasten gelegt werden. 
+Bei Apps und DECT Telefonen kann die Zielrufnummer nur über die Telefontastatur eingegeben werden.
+
+Nutzungsbeispiel: *39 anrufen, "40#2#" eingeben um für die Nebenstelle 40 auf "Bitte nicht stören umzuschalten.
+
+
+
 ## Dynamische Weiterleitungen ##
 ### 72_dynWeiterleitung_an ###
 Das Skript *72 fragt mittels DTFM die Zielrufnummer der Weiterleitung ab, trägt diese in das Weiterleitungsziel des "Benutzerdefinierter Status 2" und schaltet den Status der anrufenden Nebenstelle auf diesen um.
@@ -26,11 +37,6 @@ Nutzungsbeispiel: *721 anrufen, "80#83#" eingeben um für die Nebenstelle 80 ein
 Dies kann z.B. verwendet werden um die Dummy Nebenstelle 80 zwischen dem Anrufbeantworter "81 TAG", dem Anrufbeantworter "82 Nacht" oder "83 Urlaub" umzuschalten.
 
 
-
-## Eigene Änderungen ##
-Der CFD erlaubt es nicht Projekte mit einem "*" im Wählcode zu erstellen.
-Nach dem Build entpackt man einmal die ZIP Datei im Ordner \Output\Release und ändert in der manifest.xml die Extension von z.B. 72 auf *72
-Anschließend verpackt man das ganze wieder in die ZIP Datei.
 
 
 ## Funktion auf BLF Tasten von Tischtelefonen legen ##
